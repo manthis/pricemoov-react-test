@@ -65,14 +65,7 @@ class DataTable extends React.Component {
     render() {
         return (
             <div>
-                <br/> 
-                Agency: {this.props.chosenAgency}<br/>
-                Category: {this.props.chosenCategory}<br/>
-                Toggle: {this.props.toggleState.toString()}<br/>
-                {console.log(this.state.data)}
-                <br/>
-                <table>
-                    <caption>Agencies Prices by Category sorted by Date</caption>
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Date</th>

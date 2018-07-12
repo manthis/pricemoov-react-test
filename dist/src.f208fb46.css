@@ -47,3 +47,8 @@ input:checked + .slider {
 
 input:focus + .slider {
   box-shadow: 0 0 1px #2196F3; }
+
+.layout {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto; }

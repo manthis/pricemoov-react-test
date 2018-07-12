@@ -9,7 +9,7 @@ class Layout extends React.Component {
         super(props);
         this.state = {
             toggleState: false,
-            selectedAgency: 1,
+            selectedAgency: 0,
             selectedCategory: 0,
         };
         this.handleToggleChange = this.handleToggleChange.bind(this);
@@ -34,8 +34,8 @@ class Layout extends React.Component {
 
     render() {
         return ( 
-            <div>
-                <h2> Technical test </h2> 
+            <div class="layout">
+                <h1 align="center">PriceMoov Technical Test</h1>
                 <SelectAgency handleChange={this.handleAgencyChange} />
                 <SelectCategory handleChange={this.handleCategoryChange} chosenAgency={this.state.selectedAgency} />
                 <DataTable 

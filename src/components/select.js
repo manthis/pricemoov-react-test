@@ -30,12 +30,11 @@ class SelectAgency extends React.Component {
     render() {
         return (
             <div>
-                <label className="select" onChange={this.props.handleChange}>  
-                    Agency: 
-                    <select>
-                        { this.state.agencies.map(agency => this.renderAgency(agency)) }
-                    </select>
-                </label>
+                <label for="agency-select">Agency:</label>
+                <select className="form-control" id="agency-select" onChange={this.props.handleChange}>
+                    <option value="">Choose agency</option>
+                    { this.state.agencies.map(agency => this.renderAgency(agency)) }
+                </select>                
             </div>
         );
     }
@@ -84,13 +83,11 @@ class SelectCategory extends React.Component {
     render() {
         return (
             <div>
-                <label className="select" onChange={this.props.handleChange}>  
-                    Category: 
-                    <select>
-                        <option value=""> Choose agency category </option>
-                        { this.state.categories.map(category => this.renderCategory(category)) }
-                    </select>
-                </label>
+                <label for="category-select">Category:</label>
+                <select className="form-control" id="category-select" onChange={this.props.handleChange}>
+                    <option value="">Choose category</option>
+                    { this.state.categories.map(category => this.renderCategory(category)) }
+                </select>  
             </div>
         );
     }

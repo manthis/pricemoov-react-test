@@ -13,6 +13,7 @@ class Toggle extends React.Component {
     render() {
         return (
             <div>
+                <small>Display all prices</small><br/>
                 <label className="switch">
                     <input type="checkbox" onChange={this.props.handleChange} />
                     <span className="slider round"></span>
