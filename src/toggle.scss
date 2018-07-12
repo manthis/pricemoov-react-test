@@ -1,0 +1,85 @@
+
+$COMPONENT_HEIGHT: 20px;
+$COMPONENT_WIDTH: 32px;
+
+/* The switch - the box around the slider */
+
+$SWITCH_HEIGHT: $COMPONENT_HEIGHT;
+$SWITCH_WIDTH: $COMPONENT_WIDTH;
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: $SWITCH_WIDTH;
+    height: $SWITCH_HEIGHT;
+
+    /* Hide default HTML checkbox */
+    input {
+        display: none;
+    }
+}
+
+/* The slider */
+
+$SLIDER_BG_COLOR: #CCCCCC;
+$SLIDER_BG_BEFORE_COLOR: #FFFFFF;
+$SLIDER_BG_COLOR_ENABLED: #2196F3;
+$SLIDER_TRANSITION_TIME: .4s;
+$SLIDER_DIMENSION: 12px;
+$SLIDER_HEIGHT: $SLIDER_DIMENSION;
+$SLIDER_WIDTH: $SLIDER_DIMENSION;
+
+
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $SLIDER_BG_COLOR;
+    -webkit-transition: $SLIDER_TRANSITION_TIME;
+    transition: $SLIDER_TRANSITION_TIME;
+    &:before {
+        position: absolute;
+        content: "";
+        height: $SLIDER_HEIGHT;
+        width: $SLIDER_WIDTH;
+        left: 4px;
+        bottom: 4px;
+        background-color: $SLIDER_BG_BEFORE_COLOR;
+        -webkit-transition: $SLIDER_TRANSITION_TIME;
+        transition: $SLIDER_TRANSITION_TIME;
+    }
+    /* Rounded sliders */
+    &.round {
+        border-radius: $COMPONENT_HEIGHT;
+        &:before {
+            border-radius: 50%;
+        }
+    }
+}
+
+input {
+    &:checked {
+        + .slider {
+            background-color: $SLIDER_BG_COLOR_ENABLED;
+            &:before {
+                @include transform(translateX($SLIDER_DIMENSION));
+            }
+        }
+    }
+    &:focus {
+        + .slider {
+            box-shadow: 0 0 1px $SLIDER_BG_COLOR_ENABLED;
+        }
+    }
+}
